@@ -1,0 +1,20 @@
+import cv2
+import numpy as np
+
+# Preprocess the image
+image = cv2.imread("C:/Users/Dhekra Hajji/OneDrive - CXG/Bureau/animals/Beetle/Beetle-Interesting.jpg")
+image = cv2.resize(image, (224, 224))
+image = image / 255.0
+
+# Reshape the image
+image = np.reshape(image, (1, 224, 224, 3))
+
+# Make predictions using the model
+prediction = model.predict(image)
+predicted_class_index = np.argmax(prediction)
+
+# Retrieve the predicted class label
+predicted_class = class_names[predicted_class_index]
+
+# Print the predicted class
+print("Predicted class:", predicted_class)
